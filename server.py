@@ -55,5 +55,12 @@ def terminal(
     return "\n".join(parts) if parts else "(no output)"
 
 
+@mcp.resource("resource://mcpreadme")
+def mcpreadme() -> str:
+    """Return the contents of ~/Desktop/mcpreadme.md."""
+    with open("/Users/joandiaz/Desktop/mcpreadme.md", encoding="utf-8") as fh:
+        return fh.read()
+
+
 if __name__ == "__main__":
     mcp.run(transport="stdio")
